@@ -5,6 +5,15 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First, run the development server:
 
 ```bash
+#1 set npm registry
+npm config set registry https://registry.npmmirror.com
+#2 install modules
+npm install
+#3 run project
+npm run dev
+```
+
+```bash
 npm run dev
 # or
 yarn dev
