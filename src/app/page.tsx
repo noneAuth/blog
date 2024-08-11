@@ -1,9 +1,30 @@
-import Image from "next/image";
-
-export default function Home() {
+'use client' //客户端渲染时
+import React, { useState, useEffect } from 'react'
+ 
+const Home = () => {
+  const [data, setData] = useState([])
+ 
+  useEffect(() => {
+    fetchData()
+  }, [])
+ 
+  const fetchData = async () => {
+    try {
+      const response = await fetch('/api/getData')
+      const res = await response.json()
+      const data = res.data[0]
+      setData(data.title)
+      console.log('data: ',res, data)
+    } catch (error) {
+      console.error('Error fetching data:', error)
+    }
+  }
+ 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        
-    </main>
-  );
+    <div>
+      <h1>测试mysql连接:{data}</h1>
+    </div>
+  )
 }
+ 
+export default Home
