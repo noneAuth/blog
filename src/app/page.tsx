@@ -13,7 +13,7 @@ const Home = () => {
       const response = await fetch('/api/getData')
       const res = await response.json()
       const data = res.data[0]
-      setData(data.title)
+      setData(data);
       console.log('data: ',res, data)
     } catch (error) {
       console.error('Error fetching data:', error)
@@ -22,7 +22,7 @@ const Home = () => {
  
   return (
     <div>
-      <h1>测试mysql连接:{data}</h1>
+      <h1>测试mysql连接:{JSON.stringify(data)}</h1>
     </div>
   )
 }
